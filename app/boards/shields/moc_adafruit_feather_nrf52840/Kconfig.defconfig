@@ -1,0 +1,9 @@
+# Copyright (c) 2022 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_MOC_ADAFRUIT_FEATHER_NRF52840
+
+config ZMK_KEYBOARD_NAME
+    default "moc_adafruit_feather_nrf52840"
+
+endif
