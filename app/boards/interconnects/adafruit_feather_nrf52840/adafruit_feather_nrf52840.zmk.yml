@@ -1,0 +1,18 @@
+file_format: "1"
+id: adafruit_feather_nrf52840
+name: Adafruit Feahter nrf52840 Express
+type: interconnect
+url: https://www.adafruit.com/product/4062
+manufacturer: adafruit
+description: |
+  The Seeed(uino) XIAO is a popular smaller format micro-controller, that has gained popularity as an alternative
+  to the SparkFun Pro Micro. Since its creation, several pin compatible controllers, such
+  as the Seeeduino XIAO BLE, Adafruit QT Py and Adafruit QT Py RP2040, have become available.
+node_labels:
+  gpio: feather_header
+  i2c: feather_i2c
+  spi: feather_spi
+  uart: feather_serial
+design_guideline: |
+  ZMK uses the "D"-prefixed, green color coded pin names, e.g. `D2`, to generate devicetree node references.
+  For example, to refer to the pin labeled `D0` in the diagram, use `&xiao_d 0` in the devicetree files.
