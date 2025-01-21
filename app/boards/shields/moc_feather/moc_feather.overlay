@@ -5,7 +5,7 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include "moc_feateher-layouts.dtsi"
+#include "moc_feather-layouts.dtsi"
 
 &physical_layout0 {
     transform = <&matrix_transform0>;
