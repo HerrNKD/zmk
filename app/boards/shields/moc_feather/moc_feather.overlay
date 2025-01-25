@@ -6,6 +6,13 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "moc_feather-layouts.dtsi"
+<<<<<<< HEAD
+=======
+
+&physical_layout0 {
+    transform = <&matrix_transform0>;
+};
+>>>>>>> ac288bf5bfa584f7444e23fa1db9a14b5c643e9e
 
 / {
 	chosen {

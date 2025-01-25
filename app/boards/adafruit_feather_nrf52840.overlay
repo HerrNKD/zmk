@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+<<<<<<< HEAD
 / {
 	chosen {
 		zmk,battery = &vbatt;
@@ -15,4 +16,6 @@
 	
 };
 
+=======
+>>>>>>> ac288bf5bfa584f7444e23fa1db9a14b5c643e9e
 &feather_serial { status = "disabled"; };
