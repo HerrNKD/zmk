@@ -1,0 +1,12 @@
+file_format: "1"
+id: IVP60
+name: IVP60
+type: shield
+url: https://github.com/HerrNKD/IVP60
+requires: [adafruit_feather_nrf52840]
+features:
+  - keys
+  - studio
+siblings:
+  - IVP60_left
+  - IVP60_right

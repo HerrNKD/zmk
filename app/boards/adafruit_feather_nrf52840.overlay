@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/ {
+	chosen {
+		zmk,battery = &vbatt;
+	};
+	
+	vbatt: vbatt {
+		compatible = "zmk,battery-nrf-vddh";
+	};
+	
+};
+
+&feather_serial { status = "disabled"; };
