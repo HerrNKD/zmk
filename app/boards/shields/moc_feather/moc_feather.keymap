@@ -12,10 +12,17 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default_layer { // Layer 0
             bindings = <
                 &kp A      &kp C
-                &kp B      &kp D
+                &to 1      &kp D
+            >;
+        };
+
+        second_layer  { // Layer 1
+            bindings = <
+                &kp E      &kp F
+                &to 0      &kp G
             >;
         };
 

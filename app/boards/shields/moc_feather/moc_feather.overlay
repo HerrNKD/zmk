@@ -5,43 +5,38 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include "moc_feateher-layouts.dtsi"
-
-&physical_layout0 {
-    transform = <&matrix_transform0>;
-};
+#include "moc_feather-layouts.dtsi"
 
 / {
-    chosen {
-        zmk,kscan = &kscan0;
-        zmk,physical-layout = &physical_layout0;
-    };
-
-    matrix_transform0: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <2>;
-           rows = <2>;
-            map = <
-    RC(0,0) RC(1,0)
-    RC(1,0) RC(1,1)
-        >;
-    };
-
-
-    kscan0: kscan_0 {
-        compatible = "zmk,kscan-gpio-matrix";
-        wakeup-source;
-
-        diode-direction = "row2col";
-
-        col-gpios
-            = <&feather_header 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&feather_header 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
-
-        row-gpios
-            = <&feather_header 0 GPIO_ACTIVE_HIGH>
-            , <&feather_header 1 GPIO_ACTIVE_HIGH>
-            ;
-    };
+	chosen {
+		zmk,kscan = &kscan0;
+		zmk,physical-layout = &physical_layout0;
+	};
+	
+	matrix_transform0: keymap_transform_0 {
+		compatible = "zmk,matrix-transform";
+		   columns = <2>;
+		      rows = <2>;
+		       map = <
+		           RC(0,0) RC(0,1)
+		           RC(1,0) RC(1,1)
+		       >;
+	};
+	
+	
+	kscan0: kscan_0 {
+		compatible = "zmk,kscan-gpio-matrix";
+		wakeup-source;
+		diode-direction = "col2row";
+		
+		col-gpios
+		        = <&feather_header 20 GPIO_ACTIVE_HIGH> // D13, col1
+		        , <&feather_header 19 GPIO_ACTIVE_HIGH> // D12, col2
+		        ;
+		
+		row-gpios
+		        = <&feather_header 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // D11, Row1
+		        , <&feather_header 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // D10, Row2
+		        ;
+	};
 };

@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "IVP60.dtsi"
+
+&kscan0 {
+	col-gpios = <&feather_header 20 GPIO_ACTIVE_HIGH> // D13, Col1 
+		      , <&feather_header 19 GPIO_ACTIVE_HIGH> // D12, Col2
+		      , <&feather_header 18 GPIO_ACTIVE_HIGH> // D11, Col3
+		      , <&feather_header 17 GPIO_ACTIVE_HIGH> // D10, Col4
+		      , <&feather_header 16 GPIO_ACTIVE_HIGH> // D9,  Col5
+		      , <&feather_header 15 GPIO_ACTIVE_HIGH> // D5,  Col6
+		      , <&feather_header 11 GPIO_ACTIVE_HIGH> // D2,  Col7
+		      , <&feather_header  5 GPIO_ACTIVE_HIGH> // A5,  Col8
+		      ;
+};
