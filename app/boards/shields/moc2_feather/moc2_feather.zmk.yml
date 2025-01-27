@@ -1,0 +1,9 @@
+file_format: "1"
+id: moc2_feather
+name: MOC adafruit feather nrf52840
+type: shield
+url: https://github.com/HerrNKD/moc_feather
+requires: [feather_nrf52840]
+features:
+  - keys
+  - studio
