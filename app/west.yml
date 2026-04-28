@@ -1,9 +1,9 @@
 manifest:
   remotes:
     - name: zephyrproject-rtos
-      url-base: https://github.com/zephyrproject-rtos
+      url-base: https://github.com/HerrNKD
     - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+      url-base: https://github.com/HerrNKD
   projects:
     - name: zephyr
       remote: zmkfirmware
