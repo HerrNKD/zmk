@@ -154,6 +154,10 @@ jobs:
         if: failure() && steps.west_build.outcome == 'failure'
         run: cat "${{ env.build_dir }}/zephyr/include/generated/zephyr/devicetree_generated.h"
 
+      - name: check DTS input file if West Build failed
+        if: failure() && steps.west_build.outcome == 'failure'
+        run: cat "${{ env.build_dir }}/zephyr/zephyr.dts.pre"
+
       - name: Warn about building from main if build fails
         if: failure() && env.zmk_revision == 'main'
         run: |
