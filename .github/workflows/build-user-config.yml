@@ -149,6 +149,10 @@ jobs:
         shell: sh -x {0}
         run: west build -s zmk/app -d "${{ env.build_dir }}" -b "${{ matrix.board }}" ${{ env.extra_west_args }} -- -DZMK_CONFIG=${{ env.base_dir }}/${{ inputs.config_path }} ${{ env.extra_cmake_args }} ${{ matrix.cmake-args }}
 
+      - name: check devicetree_generated.h if West Build failed
+        if: failure() && steps.West_Build_(${{ env.display_name }}).outcome == 'failure'
+        run: cat "${{ env.build_dir }}/zephyr/include/generated/zephyr/devicetree_generated.h"
+
       - name: Warn about building from main if build fails
         if: failure() && env.zmk_revision == 'main'
         run: |
