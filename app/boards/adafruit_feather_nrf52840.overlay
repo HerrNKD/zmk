@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/ {
+	chosen {
+		zmk,battery = &vbatt;
+	};
+	
+	vbatt: vbatt {
+		compatible = "zmk,battery-nrf-vddh";
+	};
+	
+};
+
+&feather_serial { status = "disabled"; };
+
+&flash0 {
+	
+	partitions {
+		
+		
+		sd_partition: partition@0 {
+			label = "softdevice";
+			reg = <0x00000000 0x00026000>;
+		};
+		
+		code_partition: partition@27000 {
+			label = "code_partition";
+			reg = <0x00027000 0x000c5000>;
+		};
+		
+		uf2storage_partition: partition@ec000 {
+			label = "uf2storage";
+			reg = <0x000ec000 0x00008000>;
+		};
+		
+		uf2boot_partition: partition@f4000 {
+			label = "adafruit_boot";
+			reg = <0x000f4000 0x0000c000>;
+		};
+	};
+	
+};
+
+// &boot_partition: partiton@0 { status = "disabled"; };
+// &storage_partition: partition@ec000 { status = "disabled"; };
+
+&boot_partition { status = "disabled"; };
+&storage_partition { status = "disabled"; };
+
+// 'storage_partition' appears on
+//    /soc/flash-controller@4001e000/flash@0/partitions/partition@ec000 and on
+//    /soc/flash-controller@4001e000/flash@0/partitions/partition@f8000
+
+// /soc/flash-contrDT_COMPAT_fixed_partitions_LABEL_storageoller@4001e000/flash@0/partitions/partition@0     and on 
+// /soc/flash-controller@4001e000/flash@0/partitions/partition@f4000
+
+//  parse error: /soc/flash-controller@4001e000/flash@0/partitions/partition@ec000: duplicate node
+

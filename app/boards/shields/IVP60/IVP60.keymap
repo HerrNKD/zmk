@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+
+/ {
+	keymap {
+		compatible = "zmk,keymap";
+		
+		default_layer { // Layer 0
+			
+			display-name = "QWERTY";
+			
+				// [     ] [     ] [  1  ] [  2  ] [  3  ] [  4  ] [  5  ] [  6  ]                     [  5  ] [  6  ] [  7  ] [  8  ] [  9  ] [  0  ] [  -  ] [  =  ] [  `  ] [ DEL ]
+				// [BTNXT] [   TAB   ] [  Q  ] [  W  ] [  E  ] [  R  ] [  T  ] [  Y  ]                     [  T  ] [  Y  ] [  U  ] [  I  ] [  O  ] [  P  ] [  [  ] [  ]  ] [  BSPC   ]
+				// [ ESC ] [   LCTRL    ] [  A  ] [  S  ] [  D  ] [  F  ] [  G  ] [  H  ]                    [  G  ] [  H  ] [  J  ] [  K  ] [  L  ] [  ;  ] [  '  ] [  \  ] [ ENTER ]
+				// [     ] [     LSHIFT     ] [  Z  ] [  X  ] [  C  ] [  V  ] [  B  ] [  N  ]                    [  B  ] [  N  ] [  M  ] [  ,  ] [  .  ] [  /  ] [  _  ] [  RSHIFT   ]
+				// [     ] [        ] [   LALT   ] [ WIN ] [ AISU ] [      SPACE      ] [ AGE ]                    [ SAGE ] [     SPACE    ] [ KANA ] [   RALT    ] [      ] [       ]
+			
+			bindings = <
+				&none      &none     &kp  N1  &kp  N2  &kp  N3   &kp  N4   &kp  N5  &kp  N6       /* N5 */  &kp  N6  &kp N7  &kp  N8  &kp  N9   &kp N0     &kp MINUS  &kp EQUAL  &kp GRAVE  &kp DEL
+				&bt BT_NXT &kp TAB   &kp  Q   &kp  W   &kp  E    &kp  R    &kp  T   &kp  Y                  &kp  N5  &kp Y   &kp  U   &kp  I    &kp O      &kp P      &kp LBKT   &kp RBKT   &kp BSPC
+				&kp ESC    &sk LCTRL &kp  A   &kp  S   &kp  D    &kp  F    &kp  G   &kp  H                  &kp  T   &kp H   &kp  J   &kp  K    &kp L      &kp SEMI   &kp SQT    &kp BSLH   &kp RET
+				&none      &sk LSHFT &kp  Z   &kp  X   &kp  C    &kp  V    &kp  B   &kp  N                  &kp  G   &kp B   &kp  N   &kp  M    &kp COMMA  &kp DOT    &kp FSLH   &kp UNDER  &kp LSHFT
+				&none      &none     &kp LALT &kp LGUI &kp LANG1 &kp SPACE &to 1                                                      &to  0    &kp SPACE  &kp LANG2  &kp RALT   &none      &none
+			>;
+			
+		};
+		
+		function_layer { // Layer 1
+			
+			display-name = "Function";
+			
+				// [     ] [     ] [ F1  ] [ F2  ] [ F3  ] [ F4  ] [ F5  ] [ F6  ]                     [ F7  ] [ F8  ] [ F9  ] [ F10 ] [ F11 ] [ F12 ] [  -  ] [  =  ] [  `  ] [ DEL ]
+				// [BTNXT] [   TAB   ] [  1  ] [  2  ] [  3  ] [  4  ] [  5  ] [  6  ]                     [  5  ] [  6  ] [  7  ] [  8  ] [  9  ] [  0  ] [  [  ] [  ]  ] [  BSPC   ]
+				// [ ESC ] [   LCTRL    ] [     ] [     ] [     ] [     ] [     ] [     ]                    [     ] [     ] [     ] [     ] [     ] [  ;  ] [  '  ] [  \  ] [ ENTER ]
+				// [     ] [     LSHIFT     ] [     ] [     ] [     ] [     ] [     ] [     ]                    [     ] [     ] [     ] [  ,  ] [  .  ] [ UP  ] [  /  ] [  RSHIFT   ]
+				// [     ] [        ] [   LALT   ] [ WIN ] [ AISU ] [      SPACE      ] [ AGE ]                    [ SAGE ] [      KANA     ] [ LEFT ] [   DOWN   ] [ RIGHT ] [      ]
+			
+			bindings = <
+				&none      &none     &kp  F1  &kp  F2  &kp  F3   &kp  F4   &kp  F5  &kp  F6       /* F7 */  &kp  F8  &kp F9  &kp  F10 &kp  F11  &kp F12    &trans     &trans     &trans     &trans 
+				&trans     &trans    &kp  N1  &kp  N2  &kp  N3   &kp  N4   &kp  N5  &kp  N6                 &kp  F7  &kp N6  &kp  N7  &kp  N8   &kp N9     &kp N0     &trans     &trans     &trans  
+				&trans     &trans    &none    &none    &none     &none     &none    &none                   &kp  N5  &none   &none    &none     &none      &trans     &trans     &trans     &trans 
+				&none      &trans    &none    &none    &none     &none     &none    &none                   &none    &none   &none    &none     &trans     &trans     &kp UP     &kp FSLH   &trans   
+				&none      &none     &trans   &trans   &trans    &trans    &trans                                                     &trans    &kp LANG2  &kp LEFT   &kp DOWN   &kp RIGHT  &none
+			>;
+			
+		};
+		
+	};
+};
